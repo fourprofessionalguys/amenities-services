@@ -57,5 +57,6 @@ exports.seed = function(knex, Promise) {
     })
     .then(() => {
       return knex.raw('SELECT setval(\'amenities_id_seq\', (SELECT MAX(id) FROM amenities))');
-    });
+    })
+    .catch(error => console.log(`Error seeding data: ${error}`));
 };
