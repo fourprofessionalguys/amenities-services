@@ -6,16 +6,16 @@ const app = express();
 const bodyParser = require('body-parser');
 
 //Middleware
-app.use(express.static('Client/dist'));
+app.use(express.static('../Public'));
 app.use(bodyParser());
 
 //Routes
-app.get('/api', (req, res) => {
+app.post('/api', (req, res) => {
   database('amenities').select()
     .then((amenities) => {
       res.status(200).json(amenities);
     })
-    .catch(err => {
+    .catch(error => {
       res.status(500).json({error});
     });
 });

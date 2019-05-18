@@ -11,14 +11,14 @@ module.exports = {
         include: __dirname + '/Client/app.jsx',
         use: {
           loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-react', '@babel/preset-env']
-          }
+          query: {
+            presets: ['@babel/preset-env', '@babel/preset-react']
+          }  
         }
       }
     ]
   },
-   output: {
+  output: {
     filename: 'bundle.js',
     path: __dirname + '/Public/'
   }

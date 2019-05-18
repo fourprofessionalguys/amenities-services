@@ -2,7 +2,7 @@
   "name": "amenities-services",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "react-dev": "webpack -d --watch",
@@ -34,11 +34,11 @@
     "eslint-plugin-import": "^2.13.0"
   },
   "dependencies": {
-    "knex": "^0.16.5",
-    "pg": "^7.11.0",
     "express": "^4.16.3",
+    "knex": "^0.16.5",
     "npm": "^6.2.0",
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1"
+    "pg": "^7.11.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   }
 }
