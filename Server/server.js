@@ -11,7 +11,13 @@ app.use(bodyParser());
 
 //Routes
 app.get('/api', (req, res) => {
-  console.log(hi);
+  database('amenities').select()
+    .then((amenities) => {
+      res.status(200).json(amenities);
+    })
+    .catch(err => {
+      res.status(500).json({error});
+    });
 });
 
 //Start server
