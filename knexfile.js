@@ -4,8 +4,7 @@ module.exports = {
 
   development: {
     client: 'pg',
-    connection: 'postgres://localhost/airbnb_clone',
-    useNullAsDefault: true,
+    connection: 'postgres://localhost/airbnb',
     migrations: {
       directory: './db/migrations'
     },

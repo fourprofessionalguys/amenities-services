@@ -85,8 +85,8 @@ const amenities = [
 const generateOneListing = () => {
   return {
     title: faker.random.word()
-  }
-}
+  };
+};
 
 const generateManyListings = (n) => {
   const results = [];
@@ -95,6 +95,10 @@ const generateManyListings = (n) => {
     results.push(generateOneListing());
   }
   return results;
-}
+};
+
+var listings = generateManyListings(100);
+
+
 module.exports.amenities = amenities;
-module.exports.listings = generateManyListings(100);
+module.exports.listings = listings;
