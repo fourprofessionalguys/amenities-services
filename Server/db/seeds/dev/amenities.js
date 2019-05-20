@@ -39,8 +39,8 @@ exports.seed = function(knex, Promise) {
                   let randomListing = Math.floor(Math.random() * amenitiesIds.length);
                   let randomAmenity = Math.floor(Math.random() * listingsIds.length);
                   return {
-                    amenity_id: listingsIds[randomAmenity],
-                    listing_id: amenitiesIds[randomListing],
+                    amenity_id: amenitiesIds[randomAmenity],
+                    listing_id: listingsIds[randomListing],
                   };
                 };
                 const generateRelationships = (n) => {

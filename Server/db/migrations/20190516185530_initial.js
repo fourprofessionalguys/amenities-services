@@ -15,16 +15,16 @@ exports.up = function(knex, Promise) {
       table.increments('id').primary()
       table.integer('amenity_id')
       table.integer('listing_id')
-      table.foreign('listing_id').references('amenities.id')
-      table.foreign('amenity_id').references('listings.id')
+      table.foreign('listing_id').references('listings.id')
+      table.foreign('amenity_id').references('amenities.id')
     }),
   ])
 };
 
 exports.down = function(knex, Promise) {
   return Promise.all([
+    knex.schema.dropTable('listings_amenities')
     knex.schema.dropTable('listings'),
     knex.schema.dropTable('amenities'),
-    knex.schema.dropTable('listings_amenities')
   ]);
 };
