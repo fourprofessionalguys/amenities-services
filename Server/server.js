@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 
 //Middleware
 app.use(express.static('../Public'));
-app.use(bodyParser());
+app.use(bodyParser.json());
 
 //Routes
 
@@ -21,7 +21,7 @@ app.post('/api', (req, res) => {
       });
       database('amenities').whereIn('id', amenIds).select('name', 'photoUrl')
         .then((data) => {
-          console.log(data, "POOP");
+          res.status(200).json(data);
         });
     })
     .catch(error => {
