@@ -2,21 +2,7 @@ const data = require('../../../data-generator.js');
 
 let amenitiesIds = [];
 let listingsIds = [];
-// const generateOneRelationship = () => {
-//   randomListing = Math.floor(Math.random() * amenitiesIds.length);
-//   randomAmenity = Math.floor(Math.random() * listingsIds.length);
-//   return {
-//     amenity_id: listingsIds[randomAmenity],
-//     listing_id: amenitiesIds[randomListing],
-//   };
-// };
-const generateRelationships = (n) => {
-  const results = [];
-  for (let i = 0; i < n; i++) {
-    results.push(generateOneRelationship());
-  }
-  return results;
-};
+
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
   return knex('listings_amenities').del()
@@ -36,8 +22,8 @@ exports.seed = function(knex, Promise) {
               })
               .then(() => {
                 const generateOneRelationship = () => {
-                  let randomListing = Math.floor(Math.random() * amenitiesIds.length);
-                  let randomAmenity = Math.floor(Math.random() * listingsIds.length);
+                  let randomAmenity = Math.floor(Math.random() * amenitiesIds.length);
+                  let randomListing = Math.floor(Math.random() * listingsIds.length);
                   return {
                     amenity_id: amenitiesIds[randomAmenity],
                     listing_id: listingsIds[randomListing],
@@ -54,9 +40,6 @@ exports.seed = function(knex, Promise) {
               });
           })
       ]);
-    })
-    .then(() => {
-      return knex.raw('SELECT setval(\'amenities_id_seq\', (SELECT MAX(id) FROM amenities))');
     })
     .catch(error => console.log(`Error seeding data: ${error}`));
 };
