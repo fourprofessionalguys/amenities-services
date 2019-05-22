@@ -22,7 +22,7 @@ const amenities = [
     photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/GameConsole.jpg'
   },
   {
-    name: 'Garden/backyard',
+    name: 'Garden or backyard',
     photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Garden.jpg'
   },
   {
@@ -42,7 +42,7 @@ const amenities = [
     photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Laptop.png'
   },
   {
-    name: 'Parking on premises',
+    name: 'Free parking on premises',
     photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Parking.jpg'
   },
   {
