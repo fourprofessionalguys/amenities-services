@@ -12,9 +12,8 @@ const GlobalStyle = createGlobalStyle`
   }
   `;
 const PageContainer = styled.div`
-  width: 1700px;
-  margin-top: 72px 0px;
-  margin-bottom: 72px 0px;
+  width: 1265px;
+  margin: 3rem auto 3rem auto;
 `;
 const AmenitiesTitle = styled.h1`
   font-weight: 800;
@@ -42,6 +41,26 @@ const ImgDescription = styled.p`
 font-size: 16px;
 font-weight: 400;
 
+`;
+const Button = styled.button`
+text-decoration-line: var(--font-link-text-decoration-line, none);
+color: var(--color-brand-plus, #914669);
+background: transparent;
+border: 0px;
+cursor: pointer;
+margin: 0px;
+margin: 0px !important;
+padding: 0px;
+user-select: auto;
+text-align: left;
+`;
+const ButtonWrapper = styled.div`
+margin: 0px;
+word-wrap: break-word;
+font-size: 16px;
+font-weight: 600;
+line-height: 1.375em;
+color: #484848
 `;
 const Amenity = ({photo, name}) => {
   return (
@@ -92,15 +111,16 @@ class App extends React.Component {
     return (
       <div>
         <GlobalStyle />
-        <PageContainer className="container">
-          <div className="pt-5">
-            <AmenitiesTitle>Amenities</AmenitiesTitle>
-            <AmenitiesDescription>These amenities are available to you.</AmenitiesDescription>
-            <div className="pt-4">
-              <AmenitiesRow amenities={this.state.amenities.slice(0, 6)}/>
-              <AmenitiesRow amenities={this.state.amenities.slice(6, 12)} />
-            </div>
+        <PageContainer className="pt-5">
+          <AmenitiesTitle>Amenities</AmenitiesTitle>
+          <AmenitiesDescription>These amenities are available to you.</AmenitiesDescription>
+          <div className="py-4">
+            <AmenitiesRow amenities={this.state.amenities.slice(0, 6)}/>
+            <AmenitiesRow amenities={this.state.amenities.slice(6, 12)} />
           </div>
+          <ButtonWrapper>
+            <Button>Show all 22 amenities</Button>
+          </ButtonWrapper>
         </PageContainer>
       </div>
     );
