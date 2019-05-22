@@ -11,49 +11,56 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.43;
   }
   `;
+
 const PageContainer = styled.div`
   width: 1265px;
   margin: 3rem auto 3rem auto;
 `;
+
 const AmenitiesTitle = styled.h1`
   font-weight: 800;
   font-size: 36px;
   line-height: 40px;
 `;
+
 const AmenitiesDescription = styled.h4`
   font-weight: 400;
   font-size: 16px;
   line-height: 1.375em;
 `;
+
 const Img = styled.div`
-background-image: ${props => `url('${props.photo}')`};
-background-size: 100% 100%;
-background-repeat: no-repeat;
-height: 210px;
-width: 250px;
+  background-image: ${props => `url('${props.photo}')`};
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 210px;
+  width: 250px;
 `;
+
 const ImgWrapper = styled.div`
   height: 250px;
   width: 250px;
   text-align: center;
 `;
+
 const ImgDescription = styled.p`
-font-size: 16px;
-font-weight: 400;
+  font-size: 16px;
+  font-weight: 400;
 
 `;
+
 const Button = styled.button`
-text-decoration-line: var(--font-link-text-decoration-line, none);
-color: var(--color-brand-plus, #914669);
-background: transparent;
-border: 0px;
-cursor: pointer;
-margin: 0px;
-margin: 0px !important;
-padding: 0px;
-user-select: auto;
-text-align: left;
+  text-decoration-line: var(--font-link-text-decoration-line, none);
+  color: var(--color-brand-plus, #914669);
+  background: transparent;
+  border: 0px;
+  cursor: pointer;
+  margin: 0px;
+  padding: 0px;
+  user-select: auto;
+  text-align: left;
 `;
+
 const ButtonWrapper = styled.div`
 margin: 0px;
 word-wrap: break-word;
@@ -62,6 +69,7 @@ font-weight: 600;
 line-height: 1.375em;
 color: #484848
 `;
+
 const Amenity = ({photo, name}) => {
   return (
     <ImgWrapper className="col-2">
@@ -111,7 +119,7 @@ class App extends React.Component {
     return (
       <div>
         <GlobalStyle />
-        <PageContainer className="pt-5">
+        <PageContainer>
           <AmenitiesTitle>Amenities</AmenitiesTitle>
           <AmenitiesDescription>These amenities are available to you.</AmenitiesDescription>
           <div className="py-4">
@@ -126,4 +134,5 @@ class App extends React.Component {
     );
   }
 }
+
 ReactDOM.render(<App />, document.getElementById('app'));
