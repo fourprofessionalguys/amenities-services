@@ -127,7 +127,7 @@ class App extends React.Component {
             <AmenitiesRow amenities={this.state.amenities.slice(6, 12)} />
           </div>
           <ButtonWrapper>
-            <Button>Show all 22 amenities</Button>
+            <Button>Show all {this.state.amenities.length} amenities</Button>
           </ButtonWrapper>
         </PageContainer>
       </div>
