@@ -36,12 +36,18 @@ width: 250px;
 const ImgWrapper = styled.div`
   height: 250px;
   width: 250px;
+  text-align: center;
+`;
+const ImgDescription = styled.p`
+font-size: 16px;
+font-weight: 400;
+
 `;
 const Amenity = ({photo, name}) => {
   return (
     <ImgWrapper className="col-2">
       <Img photo={photo} className="img-fluid"/>
-      {name}
+      <ImgDescription>{name}</ImgDescription>
     </ImgWrapper>
   );
 };
