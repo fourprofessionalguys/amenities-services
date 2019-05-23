@@ -82,4 +82,8 @@ describe('<App />', () => {
   it('should render two rows', () => {
     expect(wrapper.children()).toHaveLength(2);
   });
+  it('should have a key named amenities in state that is an array', () => {
+    expect(wrapper.state().amenities).toBeDefined;
+    expect(wrapper.state().amenities).toMatchObject([]);
+  });
 });
