@@ -8,6 +8,10 @@
     "react-dev": "webpack -d --watch",
     "seed": "knex migrate:latest; knex seed:run"
   },
+  "jest": {
+    "setupFiles": ["./Client/Tests/setupTests.js"]
+  },
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fourprofessionalguys/amenities-services.git"

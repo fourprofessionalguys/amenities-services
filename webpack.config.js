@@ -1,5 +1,5 @@
 module.exports = {
-  entry: __dirname + '/Client/app.jsx',
+  entry: __dirname + '/Client/src/index.jsx',
   devtool: 'source-map',
   mode: 'development',
   cache: true,
@@ -8,7 +8,6 @@ module.exports = {
       {
         test: [/\.jsx$/],
         exclude: /node_modules/,
-        include: __dirname + '/Client/app.jsx',
         use: {
           loader: 'babel-loader',
           query: {
