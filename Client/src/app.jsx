@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
 
 const PageContainer = styled.div`
   width: 1265px;
-  margin: 3rem auto 3rem auto;
+  margin: auto auto 3rem auto;
 `;
 
 const AmenitiesTitle = styled.h1`
@@ -73,15 +73,15 @@ color: #484848
 const Amenity = ({photo, name}) => {
   return (
     <ImgWrapper className="col-2">
-      <Img photo={photo} className="img-fluid"/>
-      <ImgDescription>{name}</ImgDescription>
+      <Img photo={photo} className="img-fluid image"/>
+      <ImgDescription className="description">{name}</ImgDescription>
     </ImgWrapper>
   );
 };
 
 const AmenitiesRow = ({amenities}) => {
   return (
-    <div className="row pt-3">
+    <div className="row pt-3 amenitiesList">
       {amenities.map((amenity, i) => 
         <Amenity photo={amenity.photoUrl} name={amenity.name} key={i}/>
       )}
@@ -89,7 +89,7 @@ const AmenitiesRow = ({amenities}) => {
   );
 };
 
-class App extends React.Component {
+export default class App extends React.Component {
   constructor(props) {
     super(props);
     const randy = Math.floor(Math.random() * 100) + 1;
@@ -123,11 +123,11 @@ class App extends React.Component {
           <AmenitiesTitle>Amenities</AmenitiesTitle>
           <AmenitiesDescription>These amenities are available to you.</AmenitiesDescription>
           <div className="py-4">
-            <AmenitiesRow amenities={this.state.amenities.slice(0, 6)}/>
-            <AmenitiesRow amenities={this.state.amenities.slice(6, 12)} />
+            <AmenitiesRow id="row1" amenities={this.state.amenities.slice(0, 6)}/>
+            <AmenitiesRow id="row2" amenities={this.state.amenities.slice(6, 12)} />
           </div>
           <ButtonWrapper>
-            <Button>Show all {this.state.amenities.length} amenities</Button>
+            <Button id="button">Show all {this.state.amenities.length} amenities</Button>
           </ButtonWrapper>
         </PageContainer>
       </div>
@@ -135,4 +135,7 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+export {
+  Amenity,
+  AmenitiesRow
+};
