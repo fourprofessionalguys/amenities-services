@@ -1,8 +1,8 @@
 import React from 'react'; 
 import { shallow, mount } from 'enzyme';
 
-import {Amenity, AmenitiesRow} from '../src/app.jsx';
-import App from '../src/app.jsx';
+import {Amenity, AmenitiesRow} from '../src/components/app.jsx/index.js';
+import App from '../src/components/app.jsx/index.js';
 
 let amenities = [{
   name: 'Air Conditioning',

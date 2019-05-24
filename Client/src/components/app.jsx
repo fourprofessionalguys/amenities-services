@@ -47,7 +47,6 @@ const ImgWrapper = styled.div`
 const ImgDescription = styled.p`
   font-size: 16px;
   font-weight: 400;
-
 `;
 
 const Button = styled.button`
