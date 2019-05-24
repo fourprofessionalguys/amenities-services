@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import styled, {createGlobalStyle} from 'styled-components';
 
