@@ -2,85 +2,133 @@ const faker = require('faker');
 
 const amenities = [
   {
-    name: 'Air Conditioning',
-    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/AirConditioning.jpg'
+    name: 'Air conditioning',
+    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Amenities/air-conditioning.png'
   },
   {
-    name: 'Bedroom Comforts',
-    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/BedroomComforts.jpg'
+    name: 'Baby bath',
+    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Amenities/baby-bath.png'
+  },
+  {
+    name: 'Baby crib',
+    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Amenities/crib.png'
+  },
+  {
+    name: 'Bathtub',
+    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Amenities/bathtub.png'
+  },
+  {
+    name: 'Bathroom essentials',
+    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Amenities/essentials.png'
+  },
+  {
+    name: 'Bedroom comforts',
+    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Amenities/extra-pillows-blankets.png'
+  },
+  {
+    name: 'Carbon monoxide detector',
+    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Amenities/co2-detector.png'
+  },
+  {
+    name: 'Children\'s books and toys',
+    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Amenities/childrens-books-toys.png'
   },
   {
     name: 'Coffee maker',
-    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Coffee.jpg'
-  },
-  {
-    name: 'Fireplace',
-    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Fireplace.jpg'
-  },
-  {
-    name: 'Game Console',
-    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/GameConsole.jpg'
-  },
-  {
-    name: 'Garden or backyard',
-    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Garden.jpg'
-  },
-  {
-    name: 'Hot tub',
-    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Hottub.png'
-  },
-  {
-    name: 'Iron',
-    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Iron.jpg'
-  },
-  {
-    name: 'Kitchen',
-    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Kitchen.jpg'
-  },
-  {
-    name: 'Laptop friendly workspace',
-    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Laptop.png'
-  },
-  {
-    name: 'Free parking on premises',
-    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Parking.jpg'
-  },
-  {
-    name: 'Pool',
-    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Pool.jpg'
-  },
-  {
-    name: 'Wifi',
-    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Router.jpg'
-  },
-  {
-    name: 'Cable TV',
-    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/cabletv.png'
+    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Amenities/coffee-maker.png'
   },
   {
     name: 'Dishwasher',
-    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/dishwasher.jpg'
+    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Amenities/dishwasher.png'
   },
   {
-    name: 'Fire Extinguisher',
-    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/fire-extinguisher.jpg'
-  },
-  {
-    name: 'Washer/Dryer',
-    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/washer%3Adryer.jpg'
-  },
-  {
-    name: 'Heating',
-    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/AirConditioning.jpg'
+    name: 'Dryer',
+    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Amenities/dryer.png'
   },
   {
     name: 'Elevator',
-    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/elevatorbutton.jpg'
+    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Amenities/elevator.png'
+  },
+  {
+    name: 'Fire Extinguisher',
+    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Amenities/fire-extinguisher.png'
+  },
+  {
+    name: 'Full kitchen',
+    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Amenities/kitchen.png'
+  },
+  {
+    name: 'Free parking on premises',
+    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Amenities/parking.png'
+  },
+  {
+    name: 'Game Console',
+    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Amenities/controller.png'
+  },
+  {
+    name: 'Garden or backyard',
+    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Amenities/garden-backyard.png'
+  },
+  {
+    name: 'Hair dryer',
+    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Amenities/hair-dryer.png'
+  },
+  {
+    name: 'Heating',
+    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Amenities/heating.png'
+  },
+  {
+    name: 'High chair',
+    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Amenities/high-chair.png'
+  },
+  {
+    name: 'Indoor fireplace',
+    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Amenities/indoor-fireplace.png'
+  },
+  {
+    name: 'Iron',
+    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Amenities/iron.png'
+  },
+  {
+    name: 'Pets allowed',
+    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Amenities/pets-allowed.png'
+  },
+  {
+    name: 'Pool',
+    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Amenities/pool.png'
+  },
+  {
+    name: 'Pool toys',
+    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Amenities/pool-toys.png'
+  },
+  {
+    name: 'Private hot tub',
+    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Amenities/hot-tub.png'
+  },
+  {
+    name: 'TV',
+    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Amenities/tv.png'
   },
   {
     name: 'Self check in',
-    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/self-check-in.jpg'
+    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Amenities/self-check-in.png'
   },
+  {
+    name: 'Smoke detector',
+    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Amenities/smoke-detector.png'
+  },
+  {
+    name: 'Smoking allowed',
+    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Amenities/smoking-allowed.png'
+  },
+  {
+    name: 'Washer',
+    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Amenities/washer.png'
+  },
+  {
+    name: 'Wifi',
+    photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Amenities/wireless-internet.png'
+  }
 ];
 const generateOneListing = () => {
   return {

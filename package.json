@@ -9,9 +9,10 @@
     "seed": "knex migrate:latest; knex seed:run"
   },
   "jest": {
-    "setupFiles": ["./Client/Tests/setupTests.js"]
+    "setupFiles": [
+      "./Client/Tests/setupTests.js"
+    ]
   },
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fourprofessionalguys/amenities-services.git"
@@ -36,6 +37,7 @@
     "jest": "^24.8.0",
     "jest-dom": "^3.2.2",
     "react-testing-library": "^7.0.0",
+    "supertest": "^4.0.2",
     "webpack": "^4.31.0",
     "webpack-cli": "^3.3.2"
   },

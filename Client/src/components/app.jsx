@@ -1,7 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import $ from 'jquery';
 import styled, {createGlobalStyle} from 'styled-components';
+
+import AmenitiesRow from './amenitiesRow.jsx';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
     color: #484848;
     line-height: 1.43;
   }
-  `;
+`;
 
 const PageContainer = styled.div`
   width: 1265px;
@@ -30,27 +30,7 @@ const AmenitiesDescription = styled.h4`
   word-wrap: break-word
 `;
 
-const Img = styled.div`
-  background-image: ${props => `url('${props.photo}')`};
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  height: 210px;
-  width: 250px;
-`;
-
-const ImgWrapper = styled.div`
-  height: 250px;
-  width: 250px;
-  text-align: center;
-`;
-
-const ImgDescription = styled.p`
-  font-size: 16px;
-  font-weight: 400;
-`;
-
 const Button = styled.button`
-  text-decoration-line: var(--font-link-text-decoration-line, none);
   color: var(--color-brand-plus, #914669);
   background: transparent;
   border: 0px;
@@ -59,35 +39,18 @@ const Button = styled.button`
   padding: 0px;
   user-select: auto;
   text-align: left;
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 const ButtonWrapper = styled.div`
-margin: 0px;
-word-wrap: break-word;
-font-size: 16px;
-font-weight: 600;
-line-height: 1.375em;
-color: #484848
+  margin: 0px;
+  word-wrap: break-word;
+  font-size: 16px;
+  font-weight: 600;
 `;
 
-const Amenity = ({photo, name}) => {
-  return (
-    <ImgWrapper className="col-2">
-      <Img photo={photo} className="img-fluid image"/>
-      <ImgDescription className="description">{name}</ImgDescription>
-    </ImgWrapper>
-  );
-};
-
-const AmenitiesRow = ({amenities}) => {
-  return (
-    <div className="row pt-3 amenitiesList">
-      {amenities.map((amenity, i) => 
-        <Amenity photo={amenity.photoUrl} name={amenity.name} key={i}/>
-      )}
-    </div>
-  );
-};
 
 export default class App extends React.Component {
   constructor(props) {
@@ -101,19 +64,30 @@ export default class App extends React.Component {
   }
 
   componentDidMount () {
-    $.ajax({
-      type: 'POST',
-      url: '/api',
-      data: JSON.stringify(this.state),
-      contentType: 'application/json',
-      success: (data) => {
-        this.setState({
-          amenities: data,
-        });
+    fetch('/api', {
+      method: 'POST',
+      body: JSON.stringify(this.state),
+      headers: {
+        'Content-Type': 'application/json'
       }
-    });
+    }).then(data => data.json())
+      .then(data => {
+        this.setState({
+          amenities: data
+        });
+      }).catch(error => console.error('Error:', error));
+    // $.ajax({
+    //   type: 'POST',
+    //   url: '/api',
+    //   data: JSON.stringify(this.state),
+    //   contentType: 'application/json',
+    //   success: (data) => {
+    //     this.setState({
+    //       amenities: data,
+    //     });
+    //   }
+    // });
   }
-
 
   render() {
     return (
@@ -122,11 +96,11 @@ export default class App extends React.Component {
         <PageContainer>
           <AmenitiesTitle>Amenities</AmenitiesTitle>
           <AmenitiesDescription>These amenities are available to you.</AmenitiesDescription>
-          <div className="py-4">
+          <div className="pb-5">
             <AmenitiesRow id="row1" amenities={this.state.amenities.slice(0, 6)}/>
             <AmenitiesRow id="row2" amenities={this.state.amenities.slice(6, 12)} />
           </div>
-          <ButtonWrapper>
+          <ButtonWrapper className="pt-3">
             <Button id="button">Show all {this.state.amenities.length} amenities</Button>
           </ButtonWrapper>
         </PageContainer>
@@ -135,7 +109,4 @@ export default class App extends React.Component {
   }
 }
 
-export {
-  Amenity,
-  AmenitiesRow
-};
+
