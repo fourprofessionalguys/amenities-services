@@ -5,7 +5,7 @@ import Amenity from './amenity.jsx';
 
 const AmenitiesRow = ({amenities}) => {
   return (
-    <div className="row pt-3 amenitiesList">
+    <div className="row pt-5 amenitiesList">
       {amenities.map((amenity, i) => 
         <Amenity photo={amenity.photoUrl} name={amenity.name} key={i}/>
       )}

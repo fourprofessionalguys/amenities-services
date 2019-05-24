@@ -1,5 +1,4 @@
 import React from 'react';
-import $ from 'jquery';
 import styled, {createGlobalStyle} from 'styled-components';
 
 import AmenitiesRow from './amenitiesRow.jsx';
@@ -31,10 +30,7 @@ const AmenitiesDescription = styled.h4`
   word-wrap: break-word
 `;
 
-
-
 const Button = styled.button`
-  text-decoration-line: var(--font-link-text-decoration-line, none);
   color: var(--color-brand-plus, #914669);
   background: transparent;
   border: 0px;
@@ -43,15 +39,16 @@ const Button = styled.button`
   padding: 0px;
   user-select: auto;
   text-align: left;
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 const ButtonWrapper = styled.div`
-margin: 0px;
-word-wrap: break-word;
-font-size: 16px;
-font-weight: 600;
-line-height: 1.375em;
-color: #484848
+  margin: 0px;
+  word-wrap: break-word;
+  font-size: 16px;
+  font-weight: 600;
 `;
 
 
@@ -67,17 +64,29 @@ export default class App extends React.Component {
   }
 
   componentDidMount () {
-    $.ajax({
-      type: 'POST',
-      url: '/api',
-      data: JSON.stringify(this.state),
-      contentType: 'application/json',
-      success: (data) => {
-        this.setState({
-          amenities: data,
-        });
+    fetch('/api', {
+      method: 'POST',
+      body: JSON.stringify(this.state),
+      headers: {
+        'Content-Type': 'application/json'
       }
-    });
+    }).then(data => data.json())
+      .then(data => {
+        this.setState({
+          amenities: data
+        });
+      }).catch(error => console.error('Error:', error));
+    // $.ajax({
+    //   type: 'POST',
+    //   url: '/api',
+    //   data: JSON.stringify(this.state),
+    //   contentType: 'application/json',
+    //   success: (data) => {
+    //     this.setState({
+    //       amenities: data,
+    //     });
+    //   }
+    // });
   }
 
   render() {
@@ -87,11 +96,11 @@ export default class App extends React.Component {
         <PageContainer>
           <AmenitiesTitle>Amenities</AmenitiesTitle>
           <AmenitiesDescription>These amenities are available to you.</AmenitiesDescription>
-          <div className="py-4">
+          <div className="pb-5">
             <AmenitiesRow id="row1" amenities={this.state.amenities.slice(0, 6)}/>
             <AmenitiesRow id="row2" amenities={this.state.amenities.slice(6, 12)} />
           </div>
-          <ButtonWrapper>
+          <ButtonWrapper className="pt-3">
             <Button id="button">Show all {this.state.amenities.length} amenities</Button>
           </ButtonWrapper>
         </PageContainer>

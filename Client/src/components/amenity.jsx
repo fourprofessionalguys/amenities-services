@@ -6,13 +6,14 @@ const Img = styled.div`
   background-image: ${props => `url('${props.photo}')`};
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  height: 210px;
-  width: 250px;
+  height: 197px;
+  width: 197.83px;
 `;
 
+
 const ImgWrapper = styled.div`
-  height: 250px;
-  width: 250px;
+  height: 200px;
+  width: 197.83px;
   text-align: center;
 `;
 
