@@ -10,7 +10,6 @@ const Img = styled.div`
   width: 197.83px;
 `;
 
-
 const ImgWrapper = styled.div`
   height: 200px;
   width: 197.83px;

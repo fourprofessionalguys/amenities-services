@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, {createGlobalStyle} from 'styled-components';
 
-const topBar = styled.div`
+const TopBar = styled.div`
 height: 64px;
 width: 100%;
 position: relative;
@@ -11,8 +11,8 @@ border-bottom: 1px solid rgb(228, 228, 228);
 
 const AmenityModal = () => {
   return (
-    <topBar>
-      hey
-    </topBar>
+    <TopBar>
+      HEY
+    </TopBar>
   );
 };

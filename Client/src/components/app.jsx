@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
     color: #484848;
     line-height: 1.43;
   }
-  `;
+`;
 
 const PageContainer = styled.div`
   width: 1265px;
