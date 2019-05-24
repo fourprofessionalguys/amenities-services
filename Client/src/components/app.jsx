@@ -27,6 +27,7 @@ const AmenitiesDescription = styled.h4`
   font-weight: 400;
   font-size: 16px;
   line-height: 1.375em;
+  word-wrap: break-word
 `;
 
 const Img = styled.div`
