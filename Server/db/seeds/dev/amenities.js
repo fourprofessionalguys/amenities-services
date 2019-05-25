@@ -36,7 +36,7 @@ exports.seed = function(knex, Promise) {
                   }
                   return results;
                 };
-                return knex('listings_amenities').insert(generateRelationships(1500), 'id');
+                return knex('listings_amenities').insert(generateRelationships(2000), 'id');
               });
           })
       ]);
