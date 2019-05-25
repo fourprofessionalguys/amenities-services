@@ -2,6 +2,7 @@ import React from 'react';
 import styled, {createGlobalStyle} from 'styled-components';
 
 import AmenitiesRow from './amenitiesRow.jsx';
+import ModalBody from './modalBody.jsx';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -60,7 +61,19 @@ export default class App extends React.Component {
       listingName: '',
       listingId: randy,
       amenities: [],
+      needs: [],
+      special: [],
+      showModal: false
     };
+    this.toggleModal = this.toggleModal.bind(this);
+    this.grabNeeds = this.grabNeeds.bind(this);
+    this.grabSpecial = this.grabSpecial.bind(this);
+  }
+
+  toggleModal () {
+    this.setState({
+      showModal: !this.state.showModal
+    });
   }
 
   componentDidMount () {
@@ -72,27 +85,43 @@ export default class App extends React.Component {
       }
     }).then(data => data.json())
       .then(data => {
+        let needs = this.grabNeeds(data);
+        let special = this.grabSpecial(data);
         this.setState({
-          amenities: data
+          amenities: data,
+          needs: needs,
+          special: special
         });
       }).catch(error => console.error('Error:', error));
-    // $.ajax({
-    //   type: 'POST',
-    //   url: '/api',
-    //   data: JSON.stringify(this.state),
-    //   contentType: 'application/json',
-    //   success: (data) => {
-    //     this.setState({
-    //       amenities: data,
-    //     });
-    //   }
-    // });
+  }
+
+  grabNeedsNames (amenities) {
+    let targetNames = ['Wifi', 'TV', 'Bathroom essentials', 'Bedroom Comforts', 'Coffee maker', 'Hair dryer', 'Iron', 'Carbon monoxide detector', 'Smoke detector', 'Fire extinguisher'];
+    let amenityNames = amenities.map(obj => obj.name);
+    return targetNames.filter(targetName => amenityNames.some(name => name === targetName));
+  }
+  
+  grabSpecialNames (amenities) {
+    let targetNames = ['Wifi', 'TV', 'Bathroom essentials', 'Bedroom Comforts', 'Coffee maker', 'Hair dryer', 'Iron', 'Carbon monoxide detector', 'Smoke detector', 'Fire extinguisher'];
+    let amenityNames = amenities.map(obj => obj.name);
+    return amenityNames.filter(amenityName => !targetNames.some(name => name === amenityName));
+  }
+  
+  grabNeeds (amenities) {
+    let amenityNames = this.grabNeedsNames(amenities);
+    return amenities.filter(obj => amenityNames.some(name => name === obj.name));
+  }
+  
+  grabSpecial (amenities) {
+    let amenityNames = this.grabSpecialNames(amenities);
+    return amenities.filter(obj => amenityNames.some(name => name === obj.name));
   }
 
   render() {
     return (
       <div>
         <GlobalStyle />
+        <ModalBody needs={this.state.needs} special={this.state.special} amenities={this.state.amenities} show={this.state.showModal} hideModal={this.toggleModal}></ModalBody>
         <PageContainer>
           <AmenitiesTitle>Amenities</AmenitiesTitle>
           <AmenitiesDescription>These amenities are available to you.</AmenitiesDescription>
@@ -101,12 +130,13 @@ export default class App extends React.Component {
             <AmenitiesRow id="row2" amenities={this.state.amenities.slice(6, 12)} />
           </div>
           <ButtonWrapper className="pt-3">
-            <Button id="button">Show all {this.state.amenities.length} amenities</Button>
+            <Button id="button" onClick={this.toggleModal}>Show all {this.state.amenities.length} amenities</Button>
           </ButtonWrapper>
         </PageContainer>
       </div>
     );
   }
 }
+
 
 
