@@ -79,8 +79,8 @@ export default class App extends React.Component {
 
   componentDidMount () {
     axios({
-      method: 'POST',
-      url: '/api',
+      method: 'GET',
+      url: `/amenities/${this.state.listingId}`,
       data: JSON.stringify(this.state),
       headers: {
         'Content-Type': 'application/json'

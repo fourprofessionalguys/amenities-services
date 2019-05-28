@@ -11,9 +11,9 @@ app.use(bodyParser.json());
 
 //Routes
 
-app.post('/api', (req, res) => {
-  const item = req.body.listingId;
-  database('listings_amenities').where({listing_id: req.body.listingId}).select('amenity_id')
+app.get('/amenities/:listingId', (req, res) => {
+  const item = Number(req.params.listingId);
+  database('listings_amenities').where({listing_id: item}).select('amenity_id')
     .then((data) => {
       let amenIds = [];
       data.forEach(item => {
