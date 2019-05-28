@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, {createGlobalStyle} from 'styled-components';
+import axios from 'axios';
 
 import AmenitiesRow from './amenitiesRow.jsx';
 import ModalBody from './modalBody.jsx';
@@ -77,13 +78,14 @@ export default class App extends React.Component {
   }
 
   componentDidMount () {
-    fetch('/api', {
+    axios({
       method: 'POST',
-      body: JSON.stringify(this.state),
+      url: '/api',
+      data: JSON.stringify(this.state),
       headers: {
         'Content-Type': 'application/json'
       }
-    }).then(data => data.json())
+    }).then(data => data.data)
       .then(data => {
         let needs = this.grabNeeds(data);
         let special = this.grabSpecial(data);

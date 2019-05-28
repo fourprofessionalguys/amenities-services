@@ -24,7 +24,7 @@ const ImgDescription = styled.p`
 const Amenity = ({photo, name}) => {
   return (
     <ImgWrapper className="col-2">
-      <Img photo={photo} className="img-fluid image"/>
+      <Img photo={photo} className="image"/>
       <ImgDescription className="description">{name}</ImgDescription>
     </ImgWrapper>
   );

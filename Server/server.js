@@ -31,6 +31,6 @@ app.post('/api', (req, res) => {
 });
 
 //Start server
-const port = 3002;
+const port = 3003;
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
