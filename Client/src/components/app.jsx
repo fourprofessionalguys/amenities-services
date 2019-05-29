@@ -54,7 +54,7 @@ const ButtonWrapper = styled.div`
 `;
 
 
-export default class App extends React.Component {
+export default class Amenities extends React.Component {
   constructor(props) {
     super(props);
     const randy = Math.floor(Math.random() * 100) + 1;
@@ -80,7 +80,7 @@ export default class App extends React.Component {
   componentDidMount () {
     axios({
       method: 'GET',
-      url: `/amenities/${this.state.listingId}`,
+      url: `http://localhost:3003/amenities/${this.state.listingId}`,
       data: JSON.stringify(this.state),
       headers: {
         'Content-Type': 'application/json'
