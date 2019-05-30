@@ -1,15 +1,15 @@
 import React from 'react';
 import styled, {createGlobalStyle} from 'styled-components';
 
-const Container = styled.div`
+const ContainerSSB = styled.div`
   width: 664px;
   padding-top: 42px;
 `;
 
-const CategoryContainer = styled.div`
+const CategoryContainerSSB = styled.div`
   padding-bottom: 32px;
 `;
-const Header = styled.div`
+const HeaderSSB = styled.div`
   font-size: 32px;
   line-height: 36px;
   letter-spacing: normal;
@@ -18,14 +18,14 @@ const Header = styled.div`
   padding-top: 6px;
 `;
 
-const Description = styled.div`
+const DescriptionSSB = styled.div`
   font-size: 16px;
   font-weight: 400;
   padding-bottom: 32px;
   margin-top: 8px;
 `;
 
-const Amenity = styled.div`
+const AmenitySSB = styled.div`
   display: flex;
   justify-content: space-between;
   padding-top: 20px;
@@ -36,44 +36,45 @@ const Amenity = styled.div`
   color: #484848;
 `;
 
-const Img = styled.img`
+const ImgSSB = styled.img`
   width: 64px;
   height: 64px;
   max-width: 64px;
   max-height: 64px;
 `;
 
-const NameWrapper = styled.div`
+
+const NameWrapperSSB = styled.div`
   padding-top: 12px;
 `;
 const ModalComp = ({needs, special}) => {
   return (
-    <Container>
-      <Header>
+    <ContainerSSB>
+      <HeaderSSB>
         Special to this place
-        <Description>This place has these unique amenities.</Description>
-      </Header>
-      <CategoryContainer>
+        <DescriptionSSB>This place has these unique amenities.</DescriptionSSB>
+      </HeaderSSB>
+      <CategoryContainerSSB>
         {special.map((obj, i) => 
-          <Amenity key={i}>
-            <NameWrapper>{obj.name}</NameWrapper>
-            <Img src={obj.photoUrl}></Img>
-          </Amenity>
+          <AmenitySSB key={i}>
+            <NameWrapperSSB>{obj.name}</NameWrapperSSB>
+            <ImgSSB src={obj.photoUrl}></ImgSSB>
+          </AmenitySSB>
         )}
-      </CategoryContainer>
-      <Header>
+      </CategoryContainerSSB>
+      <HeaderSSB>
         Everything you need
-        <Description>This Airbnb Plus home comes with these amenities.</Description>
-      </Header>
-      <CategoryContainer>
+        <DescriptionSSB>This Airbnb Plus home comes with these amenities.</DescriptionSSB>
+      </HeaderSSB>
+      <CategoryContainerSSB>
         {needs.map((obj, i) => 
-          <Amenity key={i}>
-            <NameWrapper>{obj.name}</NameWrapper>
-            <Img src={obj.photoUrl}></Img>
-          </Amenity>
+          <AmenitySSB key={i}>
+            <NameWrapperSSB>{obj.name}</NameWrapperSSB>
+            <ImgSSB src={obj.photoUrl}></ImgSSB>
+          </AmenitySSB>
         )}
-      </CategoryContainer>
-    </Container>
+      </CategoryContainerSSB>
+    </ContainerSSB>
   );
 };
 
