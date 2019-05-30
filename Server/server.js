@@ -2,18 +2,19 @@ const environment = process.env.NODE_ENV || 'development';
 const configuration = require('../knexfile')[environment];
 const database = require('knex')(configuration);
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const bodyParser = require('body-parser');
 
 //Middleware
-app.use(express.static('../Public'));
+app.use(cors());
+app.use(express.static(__dirname + '/../Public'));
 app.use(bodyParser.json());
 
 //Routes
-
-app.post('/api', (req, res) => {
-  const item = req.body.listingId;
-  database('listings_amenities').where({listing_id: req.body.listingId}).select('amenity_id')
+app.get('/amenities/:listingId', (req, res) => {
+  const item = Number(req.params.listingId);
+  database('listings_amenities').where({listing_id: item}).select('amenity_id')
     .then((data) => {
       let amenIds = [];
       data.forEach(item => {
@@ -21,7 +22,11 @@ app.post('/api', (req, res) => {
       });
       database('amenities').whereIn('id', amenIds).select('name', 'photoUrl')
         .then((data) => {
-          res.status(200).json(data);
+          res.status(200).set({
+            'Access-Control-Allow-Credentials': 'true',
+            'Access-Control-Allow-Origin': 'http://localhost:3000',
+            'Content-Type': 'application/json'
+          }).json(data);
         });
     })
     .catch(error => {
