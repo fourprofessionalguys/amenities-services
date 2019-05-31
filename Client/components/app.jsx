@@ -1,58 +1,10 @@
 import React from 'react';
 import styled, {createGlobalStyle} from 'styled-components';
 import axios from 'axios';
+import '../main.scss';
 
 import AmenitiesRow from './amenitiesRow.jsx';
 import ModalBody from './modalBody.jsx';
-
-
-
-const GlobalStyleSSB = createGlobalStyle`
-  body {
-    font-family: 'Roboto', Helvetica Neue, sans-serif;
-    font-size: 14px;
-    color: #484848;
-    line-height: 1.43;
-  }
-`;
-const PageContainerSSB = styled.div`
-  width: 1265px;
-  margin: auto auto 3rem auto;
-`;
-
-const AmenitiesTitleSSB = styled.h1`
-  font-weight: 800;
-  font-size: 36px;
-  line-height: 40px;
-`;
-
-const AmenitiesDescriptionSSB = styled.h4`
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.375em;
-  word-wrap: break-word
-`;
-
-const ButtonSSB = styled.button`
-  color: var(--color-brand-plus, #914669);
-  background: transparent;
-  border: 0px;
-  cursor: pointer;
-  margin: 0px;
-  padding: 0px;
-  user-select: auto;
-  text-align: left;
-  &:hover {
-    text-decoration: underline;
-  }
-`;
-
-const ButtonWrapperSSB = styled.div`
-  margin: 0px;
-  word-wrap: break-word;
-  font-size: 16px;
-  font-weight: 600;
-`;
 
 
 export default class Amenities extends React.Component {
@@ -63,6 +15,7 @@ export default class Amenities extends React.Component {
       listingName: '',
       listingId: randy,
       amenities: [],
+      mainAmenities: [],
       needs: [],
       special: [],
       showModal: false
@@ -90,14 +43,21 @@ export default class Amenities extends React.Component {
       .then(data => {
         let needs = this.grabNeeds(data);
         let special = this.grabSpecial(data);
+        let mainAmenities = this.grabMainAmenities(data);
         this.setState({
           amenities: data,
           needs: needs,
-          special: special
+          special: special,
+          mainAmenities: mainAmenities
         });
       }).catch(error => console.error('Error:', error));
   }
-
+  grabMainAmenities (amenities) {
+    let targetNames = ['Air conditioning', 'Free parking on premises', 'Pool', 'Wifi', 'TV', 'Bathroom essentials', 'Bedroom Comforts', 'Coffee maker', 'Dryer', 'Dishwasher', 'Elevator', 'Indoor fireplace', 'Full kitchen', 'Hair dryer', 'Heating', 'Iron', 'Carbon monoxide detector', 'Self check-in', 'Washer', 'Private hot tub'];
+    let amenityNames = amenities.map(obj => obj.name);
+    amenityNames = targetNames.filter(targetName => amenityNames.some(name => name === targetName));
+    return amenities.filter(obj => amenityNames.some(name => name === obj.name));
+  }
   grabNeedsNames (amenities) {
     let targetNames = ['Wifi', 'TV', 'Bathroom essentials', 'Bedroom Comforts', 'Coffee maker', 'Hair dryer', 'Iron', 'Carbon monoxide detector', 'Smoke detector', 'Fire extinguisher'];
     let amenityNames = amenities.map(obj => obj.name);
@@ -122,20 +82,20 @@ export default class Amenities extends React.Component {
 
   render() {
     return (
-      <div>
-        <GlobalStyleSSB />
-        <ModalBody needs={this.state.needs} special={this.state.special} amenities={this.state.amenities} show={this.state.showModal} hideModal={this.toggleModal}></ModalBody>
-        <PageContainerSSB>
-          <AmenitiesTitleSSB>Amenities</AmenitiesTitleSSB>
-          <AmenitiesDescriptionSSB>These amenities are available to you.</AmenitiesDescriptionSSB>
-          <div className="pb-5">
-            <AmenitiesRow id="row1" amenities={this.state.amenities.slice(0, 6)}/>
-            <AmenitiesRow id="row2" amenities={this.state.amenities.slice(6, 12)} />
+      <div id="bodySSB">
+        <ModalBody needs={this.state.needs} special={this.state.special} amenities={this.state.amenities} show={this.state.showModal ? this.state.showModal: undefined} hideModal={this.toggleModal}></ModalBody>
+        <div id="PageContainerSSB">
+
+          <div id="AmenitiesTitleSSB">Amenities</div>
+          <div id="AmenitiesDescriptionSSB">These amenities are available to you.</div>
+
+          <div id="RowsWrapper">
+            <AmenitiesRow amenities={this.state.mainAmenities}/>
           </div>
-          <ButtonWrapperSSB className="pt-3">
-            <ButtonSSB id="button" onClick={this.toggleModal}>Show all {this.state.amenities.length} amenities</ButtonSSB>
-          </ButtonWrapperSSB>
-        </PageContainerSSB>
+          <div id="ButtonWrapperSSB">
+            <button id="ButtonSSB" onClick={this.toggleModal}>Show all {this.state.amenities.length} amenities</button>
+          </div>
+        </div>
       </div>
     );
   }

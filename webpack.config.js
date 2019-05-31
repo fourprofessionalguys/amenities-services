@@ -1,10 +1,14 @@
 module.exports = {
-  entry: __dirname + '/Client/src/index.jsx',
+  entry: __dirname + '/Client/index.jsx',
   devtool: 'source-map',
   mode: 'development',
   cache: true,
   module: {
     rules: [
+      {
+        test: /\.(s*)css$/,
+        use: ['style-loader', 'css-loader', 'sass-loader']
+      },
       {
         test: [/\.jsx$/],
         exclude: /node_modules/,
@@ -19,6 +23,6 @@ module.exports = {
   },
   output: {
     filename: 'bundle.js',
-    path: __dirname + '/Public/'
+    path: __dirname + '/Public'
   }
 };

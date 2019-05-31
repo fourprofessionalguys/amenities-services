@@ -110,7 +110,7 @@ const amenities = [
     photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Amenities/tv.png'
   },
   {
-    name: 'Self check in',
+    name: 'Self check-in',
     photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Amenities/self-check-in.png'
   },
   {

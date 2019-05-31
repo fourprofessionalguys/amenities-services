@@ -1,0 +1,92 @@
+#bodySSB {
+  font-family: 'Roboto', Helvetica Neue, sans-serif;
+  font-size: 14px;
+  color: #484848;
+  line-height: 1.43;
+    #PageContainerSSB {
+      width: 1265px;
+      margin: auto auto 3em auto;
+      
+        #AmenitiesTitleSSB {
+          font-weight: 800;
+          font-size: 36px;
+          line-height: 40px;
+        }
+        #AmenitiesDescriptionSSB {
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 1.375em;
+          word-wrap: break-word;
+          margin-top: 1em;
+        }
+        #RowsWrapper {
+          padding-top: 2.5rem;
+          padding-bottom: 2.5rem;
+            #RowWrapper1 {
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: space-between;
+              padding-top: 1em;
+            }
+            #RowWrapper2 {
+              padding-top: 1em;
+              display: flex;
+            }
+            #Amenity1Wrapper {
+              margin-right: .5em;
+            }
+            #AmenityWrapper {
+              margin-left: .6em;
+              margin-right: .6em;
+            }
+            .ImgWrapperSSB {
+              height: 229px;
+              width: 197px;
+              display: flex;
+              background-color: #F2F2F2;
+              flex-direction: column;
+              align-items: center;
+              justify-content: space-between;
+            
+                .ImgSSB {
+                  height: 70%;
+                  width: 100%;
+                }
+                .ImgDescriptionSSB {
+                  font-size: 16px;
+                  font-weight: 400;
+                  margin-bottom: 2em;
+                }
+            }
+        }
+    }
+    #ButtonWrapperSSB {
+      margin: 0px;
+      word-wrap: break-word;
+      font-size: 16px;
+      font-weight: 600;
+      padding-top: 1rem;
+        #ButtonSSB {
+          color: var(--color-brand-plus, #914669);
+          background: transparent;
+          border: 0px;
+          cursor: pointer;
+          margin: 0px;
+          padding: 0px;
+          user-select: auto;
+          text-align: left;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
