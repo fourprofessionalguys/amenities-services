@@ -3,6 +3,96 @@
   font-size: 14px;
   color: #484848;
   line-height: 1.43;
+
+  #ModalBodyContainer {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9998;
+    background: rgb(255, 255, 255);
+
+      #FlexContainer {
+        display: flex;
+        justify-content: center;
+
+          #TopBar {
+            height: 64px;
+            width: 100%;
+            position: fixed;
+            border-bottom: 1px solid rgb(228, 228, 228);
+              #BackButton {
+                cursor: pointer;
+                background-color: transparent;
+                color: buttontext;
+                display: block;
+                border-width: 0px;
+                border-style: initial;
+                border-color: initial;
+                border-image: initial;
+                padding-left: 1em;
+                padding-top: 1.5em;
+                  #BackButtonImg {
+                    height: 22px;
+                    width: 22px;
+                    display: block;
+                    fill: rgb(72, 72, 72);
+                  }
+              }
+          }
+          #ModalContainer {
+            position: absolute;
+            width: 664px;
+            top: 64px;
+            bottom: 0px;
+              #ContainerSSB {
+                width: 664px;
+                padding-top: 42px;
+                  .HeaderSSB {
+                    font-size: 32px;
+                    line-height: 36px;
+                    letter-spacing: normal;
+                    font-weight: 800;
+                    color: rgb(72, 72, 72);
+                    padding-top: 6px;
+                      .DescriptionSSB {
+                        font-size: 16px;
+                        font-weight: 400;
+                        padding-bottom: 32px;
+                        margin-top: 8px;
+                      }
+                  }
+                  .CategoryContainerSSB {
+                    padding-bottom: 32px;
+                      .AmenitySSB {
+                        display: flex;
+                        justify-content: space-between;
+                        padding-top: 20px;
+                        padding-bottom: 20px;
+                        border-top: 1px solid rgb(228, 228, 228);
+                        font-size: 16px;
+                        font-weight: 500;
+                        color: #484848;
+                          .NameWrapperSSB {
+                            padding-top: 12px;
+                          }
+                          .ImgSSB {
+                            width: 64px;
+                            height: 64px;
+                            max-width: 64px;
+                            max-height: 64px;
+                          }
+                      }
+                  }
+              }
+          }
+      }
+
+  }
+
     #PageContainerSSB {
       width: 1265px;
       margin: auto auto 3em auto;
@@ -85,6 +175,32 @@
 
 
 
+
+  
+
+
+
+  
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
 
 
 
