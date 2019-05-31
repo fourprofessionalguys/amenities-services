@@ -10,7 +10,7 @@ import ModalBody from './modalBody.jsx';
 export default class Amenities extends React.Component {
   constructor(props) {
     super(props);
-    const randy = Math.floor(Math.random() * 100) + 1;
+    const randy = Math.floor(Math.random() * 99) + 1;
     this.state = {
       listingName: '',
       listingId: randy,
