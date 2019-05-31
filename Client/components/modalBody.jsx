@@ -7,7 +7,7 @@ import ModalComp from './modalComp.jsx';
 
 const ModalBodyContainer = styled.div`
   &&&&& {
-    display: ${props => props.show ? "block" : "none"};
+    display: ${props => props.show ? "table-cell" : "none"};
   }
 `;
 

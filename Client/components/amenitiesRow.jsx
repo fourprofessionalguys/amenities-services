@@ -16,7 +16,7 @@ const AmenitiesRow = ({amenities}) => {
             <Amenity photo={amenity.photoUrl} name={amenity.name} key={i} />
           )}
         </div>
-        {amenities.slice(7).map((amenity, i) => 
+        {amenities.slice(7, 12).map((amenity, i) => 
           <div id="AmenityWrapper">
             <Amenity photo={amenity.photoUrl} name={amenity.name} key={i}/>
           </div>
