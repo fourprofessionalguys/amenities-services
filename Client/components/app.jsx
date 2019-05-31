@@ -53,7 +53,7 @@ export default class Amenities extends React.Component {
       }).catch(error => console.error('Error:', error));
   }
   grabMainAmenities (amenities) {
-    let targetNames = ['Air conditioning', 'Free parking on premises', 'Pool', 'Wifi', 'TV', 'Bathroom essentials', 'Bedroom Comforts', 'Coffee maker', 'Dryer', 'Dishwasher', 'Elevator', 'Indoor fireplace', 'Full kitchen', 'Hair dryer', 'Heating', 'Iron', 'Carbon monoxide detector', 'Self check-in', 'Washer', 'Private hot tub'];
+    let targetNames = ['Suitable for events', 'Air conditioning', 'Free parking on premises', 'Pool', 'Wifi', 'TV', 'Bathroom essentials', 'Bedroom Comforts', 'Coffee maker', 'Dryer', 'Dishwasher', 'Elevator', 'Indoor fireplace', 'Full kitchen', 'Hair dryer', 'Heating', 'Iron', 'Carbon monoxide detector', 'Self check-in', 'Washer', 'Private hot tub'];
     let amenityNames = amenities.map(obj => obj.name);
     amenityNames = targetNames.filter(targetName => amenityNames.some(name => name === targetName));
     return amenities.filter(obj => amenityNames.some(name => name === obj.name));

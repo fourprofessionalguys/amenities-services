@@ -91,6 +91,10 @@ const amenities = [
     photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Amenities/wireless-internet.png'
   },
   {
+    name: 'Suitable for events',
+    photoUrl: 'https://amenities-images.s3-us-west-1.amazonaws.com/Amenities/suitable-for-events.png'
+  },
+  {
     name: 'Smoking allowed',
     photoUrl: 'https://s3-us-west-1.amazonaws.com/amenities-images/Amenities/smoking-allowed.png'
   },
