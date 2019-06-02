@@ -1,10 +1,10 @@
-const environment = process.env.NODE_ENV || 'development';
+const environment = process.env.NODE_ENV || 'production';
 const configuration = require('../knexfile')[environment];
 const database = require('knex')(configuration);
 const express = require('express');
 const cors = require('cors');
-const app = express();
 const bodyParser = require('body-parser');
+const app = express();
 
 //Middleware
 app.use(cors());
@@ -22,11 +22,7 @@ app.get('/amenities/:listingId', (req, res) => {
       });
       database('amenities').whereIn('id', amenIds).select('name', 'photoUrl')
         .then((data) => {
-          res.status(200).set({
-            'Access-Control-Allow-Credentials': 'true',
-            'Access-Control-Allow-Origin': 'http://localhost:3000',
-            'Content-Type': 'application/json'
-          }).json(data);
+          res.status(200).json(data);
         });
     })
     .catch(error => {

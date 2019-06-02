@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "jest",
-    "start": "nodemon Server/server.js",
+    "start": "node Server/server.js",
     "react-dev": "webpack -d --watch",
     "seed": "knex migrate:rollback; knex migrate:latest; knex seed:run",
     "sasswatch": "sass --watch client:public"
@@ -49,7 +49,7 @@
     "webpack-cli": "^3.3.2"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.19.0",
     "express": "^4.16.3",
     "knex": "^0.16.5",
     "npm": "^6.2.0",

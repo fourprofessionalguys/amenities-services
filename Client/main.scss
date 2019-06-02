@@ -17,6 +17,7 @@
     vertical-align: middle;
     overflow: auto;
     max-height: 100vh;
+    
 
       #FlexContainer {
         display: flex;
@@ -26,6 +27,8 @@
             height: 64px;
             width: 100%;
             position: fixed;
+            z-index: 12;
+            background-color: white;
             border-bottom: 1px solid rgb(228, 228, 228);
               #BackButton {
                 cursor: pointer;
@@ -100,6 +103,7 @@
     #PageContainerSSB {
       width: 1265px;
       margin: auto auto 3em auto;
+      padding-top: 2rem;
       
         #AmenitiesTitleSSB {
           font-weight: 800;

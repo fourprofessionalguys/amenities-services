@@ -83,9 +83,8 @@ export default class Amenities extends React.Component {
   render() {
     return (
       <div id="bodySSB">
-        <ModalBody needs={this.state.needs} special={this.state.special} amenities={this.state.amenities} show={this.state.showModal ? this.state.showModal: undefined} hideModal={this.toggleModal}></ModalBody>
+        <ModalBody needs={this.state.needs} special={this.state.special} amenities={this.state.amenities} show={this.state.showModal ? this.state.showModal : undefined} hideModal={this.toggleModal}></ModalBody>
         <div id="PageContainerSSB">
-
           <div id="AmenitiesTitleSSB">Amenities</div>
           <div id="AmenitiesDescriptionSSB">These amenities are available to you.</div>
 
