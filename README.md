@@ -26,8 +26,10 @@
 
 ## How to Run
 - download this repo, the proxy repo, and all the other component repos
-- run npm install for each repo
+- run ```npm install``` for each repo
 - open two terminals, and run the following:
-```npm run react-dev
-```npm run start
+```
+npm run react-dev
+npm run start
+```
 - Navigate to localhost:3000 to see the full page!
